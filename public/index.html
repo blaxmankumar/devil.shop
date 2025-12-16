@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Hair Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f7f7f7; color: #333; }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #111, #333);
+      color: #fff;
+      padding: 20px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { font-size: 28px; }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { color: #e6b800; }
+
+    /* Hero */
+    .hero {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1519415943484-9fa1873496d4') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 80px;
+      color: #fff;
+    }
+    .hero-content {
+      max-width: 550px;
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 12px;
+    }
+    .hero h2 { font-size: 42px; margin-bottom: 15px; }
+    .hero p { font-size: 16px; margin-bottom: 25px; }
+    .btn {
+      background: #e6b800;
+      color: #000;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn:hover { background: #fff; }
+
+    /* Sections */
+    section { padding: 80px; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 36px; }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-10px); }
+
+    /* Team */
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    .member {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .member img { width: 100%; height: 260px; object-fit: cover; }
+    .member h4 { margin: 15px 0 5px; }
+
+    /* Booking */
+    .booking form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    form input, form select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px;
+    }
+
+    @media(max-width: 768px) {
+      header { padding: 20px; }
+      section { padding: 40px 20px; }
+      .hero { padding: 20px; }
+      .hero h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Royal Hair Salon</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="#booking">Booking</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Style That Defines You</h2>
+    <p>Premium hair styling, grooming & beauty services by professional experts.</p>
+    <button class="btn" onclick="scrollToBooking()">Book Appointment</button>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title"><h2>Our Services</h2></div>
+  <div class="services">
+    <div class="service-card">Hair Cut & Styling</div>
+    <div class="service-card">Hair Coloring</div>
+    <div class="service-card">Beard Grooming</div>
+    <div class="service-card">Keratin & Smoothening</div>
+    <div class="service-card">Bridal & Party Styling</div>
+    <div class="service-card">Hair Spa & Treatment</div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="section-title"><h2>Our Experts</h2></div>
+  <div class="team">
+    <div class="member"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"><h4>Alex</h4><p>Senior Stylist</p></div>
+    <div class="member"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"><h4>Rahul</h4><p>Color Expert</p></div>
+    <div class="member"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"><h4>Sophia</h4><p>Hair Artist</p></div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="section-title"><h2>Book Appointment</h2></div>
+  <form onsubmit="return bookNow()">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <select required>
+      <option value="">Select Service</option>
+      <option>Hair Cut</option>
+      <option>Hair Color</option>
+      <option>Beard Grooming</option>
+      <option>Hair Treatment</option>
+    </select>
+    <input type="date" required>
+    <button class="btn" type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<footer id="contact">
+  <p>📍 Downtown City | ☎ 9876543210 | ✉ info@royalsalon.com</p>
+  <p>© 2025 Royal Hair Salon</p>
+</footer>
+
+<script>
+  function scrollToBooking() {
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+  }
+  function bookNow() {
+    alert('Appointment booked successfully!');
+    return false;
+  }
+</script>
+
+</body>
+</html>
